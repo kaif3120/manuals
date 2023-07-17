@@ -1,0 +1,55 @@
+clc;
+clear;
+fm = input('input signal frequency');
+k = input('no. of cycles');
+A = input('Enter amplitude signal');
+tm = 0:1 / (fm*fm) :k/fm;
+x = A*cos(2* %pi *fm*tm);
+figure(1);
+a = gca();
+a.x_location = "origin";
+a.y_location = "origin";
+plot(tm,x);
+title('Original signal');
+xlabel('Time');
+ylabel('Amplitude');
+xgrid(1)
+fnyq = 2* fm;
+fs = (3/4) * fnyq ;
+n = 0:1 / fs: k / fm;
+x = A * cos(2 * %pi *fm * n);
+figure(2);
+a = gca();
+a.x_location = "origin";
+a.y_location = "origin";
+plot(n,x);
+title('under sampling signal');
+xlabel('Time');
+ylabel('Amplitude');
+xgrid(1)
+fnyq = 2* fm;
+fo = (3/4) * fnyq ;
+o = 0:1 / fo : k / fm;
+x = A * cos(2 * %pi *fm * o);
+figure(3);
+a = gca();
+a.x_location = "origin";
+a.y_location = "origin";
+plot(o,x);
+title('nyquist sampling');
+xlabel('Time');
+ylabel('Amplitude');
+xgrid(1)
+fo = 10 * fnyq ;
+o = 0:1 / fo : k / fm;
+x = A * cos(2 * %pi *fm * o);
+figure(4);
+a = gca();
+a.x_location = "origin";
+a.y_location = "origin";
+plot2d3('gnn',o,x);
+plot(o,x,'r');
+title('over sampling signal');
+xlabel('Time');
+ylabel('Amplitude');
+xgrid(1)

@@ -1,0 +1,21 @@
+clc;
+clear all;
+figure(1)
+subplot(3,3,1);
+i=imread('C:\Users\Shivam Mishra\Downloads\pokemon.jpg');
+imshow(i);
+title('original image');
+subplot(3,3,2);
+j=imresize(i,0.8); imshow(j);
+title('resized image 0.8');
+subplot(3,3,3);
+j=imresize(i,0.7);
+imshow(j);
+title('resized image 0.7');
+subplot(3,3,4);
+j=imresize(i,0.6);
+imshow(j);
+title('resized image 0.6');
+subplot(3,3,5); j=imresize(i,0.1);
+imshow(j);
+title('resized image 0.1');
