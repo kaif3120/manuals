@@ -1,0 +1,7 @@
+mydata<-read.csv("C:\\Users\\PC NO 19 IT\\Downloads\\binary.csv")
+head(mydata)
+summary(mydata)
+sapply(mydata,sd)
+mydata$rank<factor(mydata$rank)
+mylogit<-glm(admit~gre+gpa+rank,data=mydata,family="binomial")
+summary(mylogit)
